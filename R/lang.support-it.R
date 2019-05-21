@@ -1,4 +1,4 @@
-# Copyright 2010-2018 Meik Michalke <meik.michalke@hhu.de>
+# Copyright 2010-2019 Meik Michalke <meik.michalke@hhu.de>
 #
 # This file is part of the R package koRpus.lang.it.
 #
@@ -56,7 +56,7 @@ lang.support.it <- function(...) {
       lang="it",
       encoding="UTF-8",
       preset=function(TT.cmd, TT.bin, TT.lib, unix.OS){
-        TT.abbrev    <- file.path(TT.lib, "italian-abbreviations")
+        TT.abbrev    <- file.path(TT.lib, "italian-abbreviations-utf8")
         if(isTRUE(unix.OS)){
           # preset for unix systems
           return(
@@ -66,7 +66,7 @@ lang.support.it <- function(...) {
               TT.abbrev         = TT.abbrev,
               TT.params         = file.path(TT.lib, "italian-utf8.par"),
 
-              TT.tknz.opts      = paste("-i -a", TT.abbrev),
+              TT.tknz.opts      = "-i",
               TT.lookup.command = c(),
               TT.filter.command = c()
             )
@@ -80,7 +80,7 @@ lang.support.it <- function(...) {
               TT.abbrev         = TT.abbrev,
               TT.params         = file.path(TT.lib, "italian-utf8.par"),
 
-              TT.tknz.opts      = paste("-a", TT.abbrev),
+              TT.tknz.opts      = c(),
               TT.lookup.command = c(),
               TT.filter.command = c()
             )
